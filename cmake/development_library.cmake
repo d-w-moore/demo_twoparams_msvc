@@ -11,12 +11,12 @@ install(
 
 set(
   RULE_ENGINE_PLUGIN_AUDIT_AMQP
-  ${CMAKE_BINARY_DIR}/libirods-microservice-demo_twoparams.so
+  ${CMAKE_BINARY_DIR}/libirods-microservice-my_demo.so
   )
 
 install(
   FILES
-  ${CMAKE_BINARY_DIR}/libirods-microservice-demo_twoparams.so
+  ${CMAKE_BINARY_DIR}/libirods-microservice-my_demo.so
   DESTINATION usr/include/irods
   COMPONENT ${IRODS_PACKAGE_COMPONENT_DEVELOPMENT_NAME}
   )

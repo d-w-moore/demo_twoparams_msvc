@@ -11,7 +11,7 @@
 #include <cstring>
 #include <regex.h>
 
-int msidemo_twoparams(
+int msimy_demo(
     msParam_t*      _param1,
     msParam_t*      _param2,
     ruleExecInfo_t* _rei ) {
@@ -29,11 +29,11 @@ irods::ms_table_entry* plugin_factory() {
     msvc->add_operation<
         msParam_t*,
         msParam_t*,
-        ruleExecInfo_t*>("msidemo_twoparams",
+        ruleExecInfo_t*>("msimy_demo",
                          std::function<int(
                              msParam_t*,
                              msParam_t*,
-                             ruleExecInfo_t*)>(msidemo_twoparams));
+                             ruleExecInfo_t*)>(msimy_demo));
     return msvc;
 }
 

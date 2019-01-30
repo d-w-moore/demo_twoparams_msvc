@@ -31,7 +31,7 @@ def main(rule_args, callback, rei):
               print_('expression error')
 
       if bObj is not None:
-          rv = callback.msidemo_twoparams( "mystring", bObj)
+          rv = callback.msimy_demo( "mystring", bObj)
           retval = rv['arguments'][0] 
           print_( 'retval = ' + repr(retval))
 

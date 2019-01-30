@@ -1,0 +1,9 @@
+git clone http://github.com/d-w-moore/demo_twoparams_msvc
+
+cd demo_twoparams_msvc/
+
+(git) mv src/lib-microservice-{demo_twoparams,my_demo}.cpp  
+
+x=$(find -type f|xargs grep demo_twoparams -l|grep -vw git)
+
+perl -i.orig -pe 's/demo_twoparams/my_demo/g' $x

@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.5.0 FATAL_ERROR) #CPACK_DEBIAN_<COMPONENT>_PACKAGE_NAME
 
-find_package(IRODS 4.3.0 EXACT REQUIRED)
+find_package(IRODS 4.2.4 EXACT REQUIRED)
 
 set(CMAKE_C_COMPILER ${IRODS_EXTERNALS_FULLPATH_CLANG}/bin/clang)
 set(CMAKE_CXX_COMPILER ${IRODS_EXTERNALS_FULLPATH_CLANG}/bin/clang++)
 
-project(irods-microservice-demo_twoparams C CXX)
+project(irods-microservice-my_demo C CXX)
 
 if (NOT CMAKE_INSTALL_PREFIX)
   set(CMAKE_INSTALL_PREFIX "/" CACHE STRING "Install root path. Change from \"/\" for run-in-place installations." FORCE)
@@ -64,13 +64,13 @@ set(
 
 set(
   PLUGIN
-  msidemo_twoparams
+  msimy_demo
   )
 
   add_library(
       ${PLUGIN}
       MODULE
-      ${CMAKE_SOURCE_DIR}/src/lib-microservice-demo_twoparams.cpp
+      ${CMAKE_SOURCE_DIR}/src/lib-microservice-my_demo.cpp
       )
 
   target_include_directories(
@@ -103,7 +103,7 @@ install(
     DESTINATION usr/lib/irods/plugins/microservices
   )
 
-set(CPACK_PACKAGE_FILE_NAME "irods-microservice-demo_twoparams-${IRODS_VERSION}-${IRODS_LINUX_DISTRIBUTION_NAME}${IRODS_LINUX_DISTRIBUTION_VERSION_MAJOR}-${CMAKE_SYSTEM_PROCESSOR}")
+set(CPACK_PACKAGE_FILE_NAME "irods-microservice-my_demo-${IRODS_VERSION}-${IRODS_LINUX_DISTRIBUTION_NAME}${IRODS_LINUX_DISTRIBUTION_VERSION_MAJOR}-${CMAKE_SYSTEM_PROCESSOR}")
 set(CPACK_INCLUDE_TOPLEVEL_DIRECTORY OFF)
 set(CPACK_COMPONENT_INCLUDE_TOPLEVEL_DIRECTORY OFF)
 set(CPACK_COMPONENTS_GROUPING IGNORE)
@@ -133,10 +133,10 @@ set(CPACK_RPM_PACKAGE_AUTOPROV 0)
 
 set(CPACK_ARCHIVE_COMPONENT_INSTALL OFF)
 
-set(CPACK_DEBIAN_PACKAGE_NAME "irods-microservice-demo_twoparams")
+set(CPACK_DEBIAN_PACKAGE_NAME "irods-microservice-my_demo")
 set(CPACK_DEBIAN_PACKAGE_DEPENDS "${IRODS_PACKAGE_DEPENDENCIES_STRING}, irods-runtime (= ${IRODS_VERSION}), libc6")
 
-set(CPACK_RPM_PACKAGE_NAME "irods-microservice-demo_twoparams")
+set(CPACK_RPM_PACKAGE_NAME "irods-microservice-my_demo")
 if (IRODS_LINUX_DISTRIBUTION_NAME STREQUAL "centos" OR IRODS_LINUX_DISTRIBUTION_NAME STREQUAL "centos linux")
   set(CPACK_RPM_PACKAGE_REQUIRES "${IRODS_PACKAGE_DEPENDENCIES_STRING}, irods-runtime = ${IRODS_VERSION}, openssl")
 elseif (IRODS_LINUX_DISTRIBUTION_NAME STREQUAL "opensuse")
